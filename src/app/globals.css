@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --color-*: initial;
+}
+
+@import "../../public/css/catppuccin.css";
+@import "../../public/css/colors.css";
+
+:root {
+  --current-accent-color: var(--color-peach);
+  --font-jetbrains-mono: 'JetBrains Mono', monospace;
+}
+
+@theme static {
+  --color-accent: var(--current-accent-color);
+}
+
+@theme {
+  --font-jetbrains-mono: 'JetBrains Mono', monospace;
+}
+
+@layer utilities {
+  .scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent) transparent;
+  }
+}
+
+@utility bg-* {
+  transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
+}
+@utility text-* {
+  transition: color 500ms ease-in-out;
+}
+@utility border-* {
+  transition: border-color 500ms ease-in-out;
+}
+
+@utility link {
+  @apply text-accent hover:bg-accent hover:text-mantle decoration-dashed underline-offset-4 duration-200 not-hover:underline;
+}
+
+.leaflet-container,
+.leaflet-control-attribution,
+.leaflet-pane,
+.leaflet-tile-pane,
+.leaflet-overlay-pane {
+  z-index: 0 !important;
+}
+.leaflet-control-attribution {
+  display: none !important;
+}
