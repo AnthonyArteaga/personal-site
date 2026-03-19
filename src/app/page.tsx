@@ -16,7 +16,7 @@ export default function HomePage() {
   const [isNameHovered, setIsNameHovered] = useState(false);
 
   return (
-    <div className="mx-auto max-w-6xl space-y-12 px-0 py-8 md:space-y-16 md:px-4 md:py-12">
+    <div className="mx-auto max-w-6xl space-y-12 px-0 py--6 md:space-y-16 md:px-4 md:py--6">
       {/* Intro */}
       <section className="px-4 md:px-0">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-stretch lg:gap-10">
@@ -116,9 +116,9 @@ export default function HomePage() {
       </section>
 
       {/* Bento Grid */}
-      <section className="px-4 md:px-0">
+      <section className="-mt-6 px-4 md:-mt-6 md:px-0">
         <h2 className="sr-only">Dashboard / Highlights</h2>
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-6 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-6 lg:grid-cols-4 [&>*]:min-h-[260px] sm:[&>*]:h-[302px]">
           <LocationMap />
           <SnappleFact />
           <TimeWaster />

@@ -5,7 +5,7 @@ import { IconInfoCircle, IconRefresh } from '@tabler/icons-react';
 import snappleFacts from '@/lib/config/snappleFacts';
 
 function getRandomFact() {
-  return snappleFacts[1054]//snappleFacts[Math.floor(Math.random() * snappleFacts.length)];
+  return snappleFacts[Math.floor(Math.random() * snappleFacts.length)];
 }
 
 export default function SnappleFact() {
@@ -43,17 +43,14 @@ export default function SnappleFact() {
       </div>
 
       <div className="flex h-full flex-col justify-between gap-4 py-2">
-        <div>
+        <p className="text-subtext0 text-xs font-semibold tracking-wider uppercase">
+          {fact ? `Snapple Fact #${fact.number}` : <span className="bg-surface0 inline-block h-3 w-24 animate-pulse rounded" />}
+        </p>
+        <div className="flex flex-1 flex-col items-center justify-center text-center">
           {fact ? (
-            <>
-              <p className="text-subtext0 mb-2 text-xs font-semibold tracking-wider uppercase">
-                Snapple Fact #{fact.number}
-              </p>
-              <p className="text-text text-sm leading-relaxed">{fact.fact}</p>
-            </>
+            <p className="text-text text-sm leading-relaxed">{fact.fact}</p>
           ) : (
-            <div className="space-y-2">
-              <div className="bg-surface0 h-3 w-24 animate-pulse rounded" />
+            <div className="w-full space-y-2">
               <div className="bg-surface0 h-3 w-full animate-pulse rounded" />
               <div className="bg-surface0 h-3 w-4/5 animate-pulse rounded" />
             </div>
@@ -62,7 +59,7 @@ export default function SnappleFact() {
 
         <button
           onClick={newFact}
-          className="border-surface1 hover:border-accent text-subtext1 hover:text-accent flex items-center gap-2 self-start rounded-lg border px-3 py-1.5 text-xs transition-all duration-200"
+          className="border-surface1 hover:border-accent text-subtext1 hover:text-accent flex items-center gap-2 self-center rounded-lg border px-3 py-1.5 text-xs transition-all duration-200"
         >
           <IconRefresh
             size={13}
