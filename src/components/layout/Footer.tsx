@@ -66,7 +66,7 @@ export default function Footer() {
               <span className="bg-green/75 absolute inline-flex h-full w-full animate-ping rounded-full" />
               <span className="bg-green relative inline-flex h-3 w-3 rounded-full" />
             </span>
-            <span className="text-subtext1 text-sm font-medium">All Systems Go</span>
+            <span className="text-subtext1 text-sm font-medium">Eating eggs</span>
           </div>
         </div>
 
