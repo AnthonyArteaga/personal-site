@@ -8,6 +8,7 @@ import Link from "next/link";
 
 import LocationMap from '@/components/bento/LocationMap';
 import TimeWaster from '@/components/bento/TimeWaster';
+import SnappleFact from '@/components/bento/SnappleFact';
 import ThemeSelector from '@/components/themes/ThemeSelector';
 import ColorSelector from '@/components/themes/ColorSelector';
 
@@ -173,9 +174,8 @@ export default function HomePage() {
             <ColorSelector />
           </div>
 
-          {/* Book a Chat */}
-          <div className="border-surface0 bg-base rounded-xl border p-4 shadow-lg lg:col-span-1">
-          </div>
+          {/* Snapple Fact */}
+          <SnappleFact />
 
           {/* Location Map */}
           <LocationMap />
