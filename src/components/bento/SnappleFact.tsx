@@ -5,7 +5,7 @@ import { IconInfoCircle, IconRefresh } from '@tabler/icons-react';
 import snappleFacts from '@/lib/config/snappleFacts';
 
 function getRandomFact() {
-  return snappleFacts[Math.floor(Math.random() * snappleFacts.length)];
+  return snappleFacts[1054]//snappleFacts[Math.floor(Math.random() * snappleFacts.length)];
 }
 
 export default function SnappleFact() {
@@ -24,7 +24,7 @@ export default function SnappleFact() {
   }, []);
 
   return (
-    <div className="border-surface0 bg-base relative flex flex-col justify-between rounded-xl border p-4 shadow-lg sm:col-span-2 lg:col-span-1">
+    <div className="border-surface0 bg-base relative flex flex-col justify-between rounded-xl border p-4 shadow-lg">
       <div className="group absolute top-3 right-3">
         <button
           className="text-subtext1 hover:text-accent transition-colors"
