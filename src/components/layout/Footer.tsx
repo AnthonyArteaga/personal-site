@@ -22,17 +22,28 @@ export default function Footer() {
   const [display, setDisplay] = useState('00:00');
 
   useEffect(() => {
+    // Read directly from localStorage here — at this point we're on the client
+    // and can't rely on the useLocalStorage state which loads asynchronously
+    const stored = (() => {
+      try {
+        const raw = localStorage.getItem('total-time-on-site');
+        return raw !== null ? (JSON.parse(raw) as number) : 0;
+      } catch {
+        return 0;
+      }
+    })();
+
     const sessionStart = Date.now();
-    const initial = totalTime;
+    setDisplay(formatTime(stored));
 
     const interval = setInterval(() => {
       const elapsed = Math.floor((Date.now() - sessionStart) / 1000);
-      setDisplay(formatTime(initial + elapsed));
+      setDisplay(formatTime(stored + elapsed));
     }, 1000);
 
     const save = () => {
       const elapsed = Math.floor((Date.now() - sessionStart) / 1000);
-      setTotalTime(initial + elapsed);
+      setTotalTime(stored + elapsed);
     };
 
     window.addEventListener('beforeunload', save);

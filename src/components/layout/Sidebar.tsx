@@ -28,7 +28,7 @@ export default function Sidebar({ isOpen, onClose }: { isOpen: boolean; onClose:
         }`}
         id="sidebar-nav"
       >
-        <div className="border-surface0 flex h-16 flex-shrink-0 items-center justify-between border-b p-4">
+        <div className="border-surface0 flex h-16 shrink-0 items-center justify-between border-b p-4">
           <span className="text-accent font-mono text-lg font-semibold">Navigation</span>
           <button
             onClick={onClose}
@@ -39,7 +39,7 @@ export default function Sidebar({ isOpen, onClose }: { isOpen: boolean; onClose:
           </button>
         </div>
 
-        <div className="border-surface0 flex-shrink-0 border-b p-4">
+        <div className="border-surface0 shrink-0 border-b p-4">
           <div className="pb-1">
             <ThemeSelector />
           </div>
