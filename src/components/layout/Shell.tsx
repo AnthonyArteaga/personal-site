@@ -16,7 +16,7 @@ export default function Shell({ children }: { children: ReactNode }) {
       {backgroundEnabled && <BackgroundEffect />}
       <Header onToggleSidebar={() => setSidebarOpen((o) => !o)} />
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-      <main className="flex-1 px-0 py-8 md:px-5">{children}</main>
+      <main className="flex-1 px-0 pt-0 pb-8 md:px-5">{children}</main>
       <Footer />
     </div>
   );
