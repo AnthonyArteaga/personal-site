@@ -7,10 +7,9 @@ import LinkWithIcon from "@/components/LinkWithIcon";
 import Link from "next/link";
 
 import LocationMap from "@/components/bento/LocationMap";
-import TimeWaster from "@/components/bento/TimeWaster";
+import OpenToWork from "@/components/bento/OpenToWork";
+import Currently from "@/components/bento/Currently";
 import SnappleFact from "@/components/bento/SnappleFact";
-import ThemeSelector from "@/components/themes/ThemeSelector";
-import ColorSelector from "@/components/themes/ColorSelector";
 
 export default function HomePage() {
   const [isNameHovered, setIsNameHovered] = useState(false);
@@ -120,12 +119,9 @@ export default function HomePage() {
         <h2 className="sr-only">Dashboard / Highlights</h2>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-6 lg:grid-cols-4 [&>*]:min-h-[260px] sm:[&>*]:h-[302px]">
           <LocationMap />
+          <OpenToWork />
+          <Currently />
           <SnappleFact />
-          <TimeWaster />
-          <div className="border-surface0 bg-base rounded-xl border p-4 shadow-lg sm:col-span-2 lg:col-span-1">
-            <ThemeSelector />
-            <ColorSelector />
-          </div>
         </div>
       </section>
 

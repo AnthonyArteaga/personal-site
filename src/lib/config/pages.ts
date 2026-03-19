@@ -17,6 +17,26 @@ export interface ExperienceTimelineItem {
   logoScale?: number;
 }
 
+export const careerStatus = {
+  roles: ["Full Stack", "Frontend", "Backend"],
+  environments: ["Remote", "Hybrid", "On-site"],
+  openTo: "Startups, scale-ups, or any team building something interesting.",
+  ctaLabel: "View Resume",
+  ctaHref: "/resume",
+};
+
+export interface CurrentlyItem {
+  type: "building" | "learning" | "obsessed with";
+  label: string;
+  href?: string;
+}
+
+export const currently: CurrentlyItem[] = [
+  { type: "building", label: "This portfolio site", href: "https://github.com" },
+  { type: "learning", label: "Something new" },
+  { type: "obsessed with", label: "Something cool" },
+];
+
 export const experienceTimeline: ExperienceTimelineItem[] = [
   {
     company: 'Acme Corp',
