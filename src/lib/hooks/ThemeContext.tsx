@@ -23,20 +23,8 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | null>(null);
 
-function getDefaultPalette(): PaletteName {
-  if (typeof window === 'undefined') return 'mocha';
-  try {
-    const stored = localStorage.getItem('palette');
-    if (stored) {
-      const parsed = JSON.parse(stored);
-      if (paletteNames.includes(parsed)) return parsed;
-    }
-  } catch {}
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'mocha' : 'latte';
-}
-
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [palette, setPalette] = useLocalStorage<PaletteName>('palette', getDefaultPalette());
+  const [palette, setPalette] = useLocalStorage<PaletteName>('palette', 'mocha');
   const [accent, setAccent] = useLocalStorage<AccentColorName>('accent', 'peach');
   const [backgroundEnabled, setBackgroundEnabled] = useLocalStorage<boolean>('background-enabled', false);
 

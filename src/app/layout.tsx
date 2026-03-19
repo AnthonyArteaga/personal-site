@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/lib/hooks/ThemeContext";
+import Shell from "@/components/layout/Shell";
 import Site from "@/lib/config/common";
 import "./globals.css";
 
@@ -60,7 +61,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <ThemeProvider>
+          <Shell>{children}</Shell>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
