@@ -32,9 +32,9 @@ export interface CurrentlyItem {
 }
 
 export const currently: CurrentlyItem[] = [
-  { type: "building", label: "This portfolio site", href: "https://github.com" },
-  { type: "learning", label: "Something new" },
-  { type: "obsessed with", label: "Something cool" },
+  { type: "building", label: "This portfolio site", href: "https://github.com/AnthonyArteaga/personal-site" },
+  { type: "learning", label: "AWS architecture SAA" },
+  { type: "obsessed with", label: "Eating good food" },
 ];
 
 export const experienceTimeline: ExperienceTimelineItem[] = [
