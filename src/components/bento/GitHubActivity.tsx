@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import { GitHubCalendar } from "react-github-calendar";
 import { IconBrandGithub } from "@tabler/icons-react";
 import Link from "next/link";
-import type { Activity, ThemeInput } from "react-github-calendar";
+import type { Activity } from "react-github-calendar";
+import type { ThemeInput } from "react-activity-calendar";
 import Site from "@/lib/config/common";
 
 const USERNAME = Site.out.github.split("/").pop()!;
@@ -73,8 +74,8 @@ export default function GitHubActivity() {
             username={USERNAME}
             transformData={selectLastHalfYear}
             theme={theme}
-            hideColorLegend
-            hideTotalCount={false}
+            showColorLegend={false}
+            showTotalCount={true}
             blockSize={11}
             blockMargin={3}
             fontSize={11}
