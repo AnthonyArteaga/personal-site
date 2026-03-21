@@ -1,3 +1,5 @@
+import Site from './common';
+
 export interface NavItem {
   title: string;
   href: string;
@@ -11,6 +13,6 @@ export const mainNavItems: NavItem[] = [
 ];
 
 export const moreNavItems: NavItem[] = [
-  { title: 'GitHub', href: 'https://github.com/AnthonyArteaga', external: true },
-  { title: 'LinkedIn', href: 'https://www.linkedin.com/in/anthony-arteaga-0b0800253/', external: true },
+  { title: 'GitHub', href: Site.out.github, external: true },
+  { title: 'LinkedIn', href: Site.out.linkedin, external: true },
 ];
