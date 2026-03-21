@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { IconX, IconExternalLink } from '@tabler/icons-react';
@@ -9,6 +10,11 @@ import ColorSelector from '@/components/themes/ColorSelector';
 
 export default function Sidebar({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const pathname = usePathname();
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [isOpen]);
 
   return (
     <>
@@ -50,16 +56,29 @@ export default function Sidebar({ isOpen, onClose }: { isOpen: boolean; onClose:
           <ul className="space-y-2" role="list">
             {mainNavItems.map((item) => (
               <li key={item.title}>
-                <Link
-                  href={item.href}
-                  target={item.external ? '_blank' : undefined}
-                  rel={item.external ? 'noopener noreferrer' : undefined}
-                  className="hover:bg-surface0 focus:bg-surface1 block rounded p-2 transition-colors duration-150 focus:outline-none"
-                  aria-current={!item.external && pathname === item.href ? 'page' : undefined}
-                  onClick={onClose}
-                >
-                  {item.title}
-                </Link>
+                {item.scrollTo ? (
+                  <button
+                    className="hover:bg-surface0 w-full cursor-pointer rounded p-2 text-left transition-colors duration-150 focus:outline-none"
+                    onClick={() => {
+                      const el = document.getElementById(item.scrollTo!);
+                      onClose();
+                      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 96, behavior: 'smooth' });
+                    }}
+                  >
+                    {item.title}
+                  </button>
+                ) : (
+                  <Link
+                    href={item.href}
+                    target={item.external ? '_blank' : undefined}
+                    rel={item.external ? 'noopener noreferrer' : undefined}
+                    className="hover:bg-surface0 focus:bg-surface1 block rounded p-2 transition-colors duration-150 focus:outline-none"
+                    aria-current={!item.external && pathname === item.href ? 'page' : undefined}
+                    onClick={onClose}
+                  >
+                    {item.title}
+                  </Link>
+                )}
               </li>
             ))}
 
