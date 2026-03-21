@@ -1,8 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { IconClock } from '@tabler/icons-react';
+import { IconClock, IconMail } from '@tabler/icons-react';
 import { Socials } from '@/lib/config/common';
+import Site from '@/lib/config/common';
 import { useLocalStorage } from '@/lib/hooks/useLocalStorage';
 import SocialIcon from '@/components/SocialIcon';
 
@@ -19,6 +20,13 @@ function formatTime(seconds: number): string {
 export default function Footer() {
   const year = new Date().getFullYear();
   const [totalTime, setTotalTime] = useLocalStorage<number>('total-time-on-site', 0);
+  const [copied, setCopied] = useState(false);
+
+  function handleEmailCopy() {
+    navigator.clipboard.writeText(Site.out.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }
   const [display, setDisplay] = useState('00:00');
 
   useEffect(() => {
@@ -89,6 +97,22 @@ export default function Footer() {
                 <SocialIcon name={item.iconName} stroke={1.5} />
               </a>
             ))}
+            <div className="relative">
+              <button
+                onClick={handleEmailCopy}
+                aria-label="Copy email"
+                className="text-subtext1 hover:text-accent flex cursor-pointer transition-colors duration-200"
+              >
+                <IconMail size={20} stroke={1.5} />
+              </button>
+              <span
+                className={`pointer-events-none absolute -top-7 left-1/2 -translate-x-1/2 rounded-md px-2 py-0.5 text-xs font-medium transition-all duration-200 bg-surface1 text-text whitespace-nowrap ${
+                  copied ? 'opacity-100 -translate-y-0' : 'opacity-0 translate-y-1'
+                }`}
+              >
+                Copied!
+              </span>
+            </div>
           </div>
         </div>
       </footer>

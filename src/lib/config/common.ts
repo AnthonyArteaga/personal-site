@@ -11,6 +11,7 @@ const Site = {
     github: 'https://github.com/AnthonyArteaga',
     linkedin: 'https://www.linkedin.com/in/anthony-arteaga-0b0800253/',
     calcom: 'https://cal.com/yourusername/15min',
+    email: 'anthony.m.arteaga@gmail.com',
   },
 } as const;
 
