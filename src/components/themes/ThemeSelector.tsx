@@ -1,7 +1,14 @@
 'use client';
 
 import { IconPalette } from '@tabler/icons-react';
-import { useTheme, paletteNames } from '@/lib/hooks/ThemeContext';
+import { useTheme, paletteNames, type PaletteName } from '@/lib/hooks/ThemeContext';
+
+const paletteLabels: Record<PaletteName, string> = {
+  latte: 'Light',
+  frappe: 'Evening',
+  macchiato: 'Dusk',
+  mocha: 'Night',
+};
 
 export default function ThemeSelector() {
   const { palette, setPalette } = useTheme();
@@ -25,7 +32,7 @@ export default function ThemeSelector() {
                   : 'text-subtext1 hover:text-subtext0'
               }`}
             >
-              {name.charAt(0).toUpperCase() + name.slice(1)}
+              {paletteLabels[name]}
             </button>
           );
         })}
