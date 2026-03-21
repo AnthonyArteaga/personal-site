@@ -193,7 +193,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Projects */}
-      <section id="projects" className="px-4 md:px-0">
+      <section id="projects" className="px-4 pb-12 md:px-0">
         <div className="mb-8 flex items-center justify-between">
           <h2 className="flex items-center gap-3 text-2xl font-semibold md:text-3xl">
             <IconStar size={28} className="text-accent" />
