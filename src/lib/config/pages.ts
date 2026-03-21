@@ -18,11 +18,8 @@ export interface ExperienceTimelineItem {
 }
 
 export const careerStatus = {
-  roles: ["Full Stack", "Frontend", "Backend"],
-  environments: ["Remote", "Hybrid", "On-site"],
-  openTo: "Startups, scale-ups, or any team building something interesting.",
-  ctaLabel: "View Resume",
-  ctaHref: "/resume",
+  role: "Software Engineer",
+  pitch: "Driven to build and ship software that works for real users while growing towards building end-to-end solutions.",
 };
 
 export interface CurrentlyItem {
