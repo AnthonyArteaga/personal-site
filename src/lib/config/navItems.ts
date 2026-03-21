@@ -11,5 +11,6 @@ export const mainNavItems: NavItem[] = [
 ];
 
 export const moreNavItems: NavItem[] = [
-  { title: 'Resume', href: '/resume.pdf', external: true },
+  { title: 'GitHub', href: 'https://github.com/AnthonyArteaga', external: true },
+  { title: 'LinkedIn', href: 'https://www.linkedin.com/in/anthony-arteaga-0b0800253/', external: true },
 ];

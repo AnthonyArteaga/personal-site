@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { IconX } from '@tabler/icons-react';
+import { IconX, IconExternalLink } from '@tabler/icons-react';
 import { mainNavItems, moreNavItems } from '@/lib/config/navItems';
 import ThemeSelector from '@/components/themes/ThemeSelector';
 import ColorSelector from '@/components/themes/ColorSelector';
@@ -72,10 +72,11 @@ export default function Sidebar({ isOpen, onClose }: { isOpen: boolean; onClose:
                   href={item.href}
                   target={item.external ? '_blank' : undefined}
                   rel={item.external ? 'noopener noreferrer' : undefined}
-                  className="hover:bg-surface0 focus:bg-surface1 block rounded p-2 transition-colors duration-150 focus:outline-none"
+                  className="hover:bg-surface0 focus:bg-surface1 flex items-center justify-between rounded p-2 transition-colors duration-150 focus:outline-none"
                   onClick={onClose}
                 >
                   {item.title}
+                  {item.external && <IconExternalLink size={14} className="text-subtext0" />}
                 </Link>
               </li>
             ))}

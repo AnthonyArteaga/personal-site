@@ -69,7 +69,7 @@ export default function Footer() {
         <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 md:justify-start">
           <span className="whitespace-nowrap">© {year} Anthony Arteaga</span>
           <span className="text-surface0 hidden md:inline">-</span>
-          <div className="flex items-center gap-1 whitespace-nowrap" title="Service Status">
+          <div className="flex items-center gap-1 whitespace-nowrap" title="Eating eggs">
             <span className="relative mr-1.5 flex h-3 w-3">
               <span className="bg-green/75 absolute inline-flex h-full w-full animate-ping rounded-full" />
               <span className="bg-green relative inline-flex h-3 w-3 rounded-full" />

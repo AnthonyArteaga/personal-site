@@ -69,7 +69,9 @@ import SnappleFact from "@/components/bento/SnappleFact";
 
 export default function HomePage() {
   const [isNameHovered, setIsNameHovered] = useState(false);
-  const [emailState, setEmailState] = useState<"idle" | "hovered" | "copied">("idle");
+  const [emailState, setEmailState] = useState<"idle" | "hovered" | "copied">(
+    "idle",
+  );
   const email = "anthony.m.arteaga@gmail.com";
 
   function handleEmailClick() {
@@ -146,16 +148,24 @@ export default function HomePage() {
               <span className="text-surface1 text-xs">|</span>
               <button
                 onClick={handleEmailClick}
-                onMouseEnter={() => emailState === "idle" && setEmailState("hovered")}
+                onMouseEnter={() =>
+                  emailState === "idle" && setEmailState("hovered")
+                }
                 onMouseLeave={() => {}}
                 className="text-subtext1 hover:text-accent inline-flex cursor-pointer items-center gap-1 text-sm transition-colors duration-200"
               >
                 <IconMail size={16} />
-                <span className="overflow-hidden transition-all duration-300 whitespace-nowrap" style={{ maxWidth: emailState === "idle" ? "3rem" : "16rem" }}>
-                  {emailState === "copied" ? "Copied!" : emailState === "hovered" ? email : "Email"}
+                <span
+                  className="overflow-hidden transition-all duration-300 whitespace-nowrap"
+                  style={{ maxWidth: emailState === "idle" ? "3rem" : "16rem" }}
+                >
+                  {emailState === "copied"
+                    ? "Copied!"
+                    : emailState === "hovered"
+                      ? email
+                      : "Email"}
                 </span>
               </button>
-
             </div>
           </div>
 
@@ -201,16 +211,16 @@ export default function HomePage() {
             {
               href: "/projects/my-project",
               title: "Personal Website",
-              desc: "A brief description of what this project does and why it matters.",
+              desc: "My interactive personal site featuring things about me.",
               tags: ["React", "Node.js", "TypeScript", "Tailwind CSS"],
-              screenshot: null,
+              screenshot: "/media/mysiteimage.png",
               github: "https://github.com/AnthonyArteaga/personal-site",
-              liveUrl: "https://example.com",
+              liveUrl: null,
             },
             {
               href: "/projects/another-project",
               title: "C5Note",
-              desc: "Another brief description. Swap these out with real projects as you build them.",
+              desc: "A robust note/document making app, featuring rich text editing, notebook organization, and document sharing ",
               tags: ["React", "Vite", "JavaScript", "PHP", "MySQL"],
               screenshot: "/media/c5-note-combined.png",
               github: "https://github.com/AnthonyArteaga/C5Note",
@@ -219,13 +229,13 @@ export default function HomePage() {
             {
               href: "/projects/another-project2",
               title: "Capture the Flag",
-              desc: "A brief description of what this project does and why it matters.",
+              desc: "This is a live Capture the Flag game, a point is scored when a flag is successfully taken to the player's base.",
               tags: [
                 "HTML",
                 "JavaScript",
                 "CSS",
-                "Flask",
                 "Python",
+                "Flask",
                 "MongoDB",
                 "Docker",
               ],
@@ -236,12 +246,13 @@ export default function HomePage() {
             {
               href: "/projects/another-project3",
               title: "ForumBoard App",
-              desc: "Another brief description. Swap these out with real projects as you build them.",
+              desc: "Forums for people to interact with each other via chats, posts, and media uploads.",
               tags: [
                 "HTML",
                 "JavaScript",
                 "CSS",
                 "Python",
+                "Flask",
                 "MongoDB",
                 "Docker",
               ],
