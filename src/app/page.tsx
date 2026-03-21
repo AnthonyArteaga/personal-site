@@ -263,14 +263,9 @@ export default function HomePage() {
           ].map((project) => (
             <div
               key={project.href}
-              className="border-surface0 bg-base hover:border-accent group relative overflow-hidden rounded-xl border shadow-lg transition-all duration-300 hover:shadow-xl"
+              onClick={() => window.open(project.liveUrl ?? project.github ?? '#', '_blank')}
+              className="border-surface0 bg-base hover:border-accent group relative cursor-pointer overflow-hidden rounded-xl border shadow-lg transition-all duration-300 hover:shadow-xl"
             >
-              {/* Full-card link covers the whole card but sits behind the icon buttons */}
-              <Link
-                href={project.href}
-                className="absolute inset-0 z-0"
-                aria-label={project.title}
-              />
               <div className="overflow-hidden">
                 <div className="bg-surface0 aspect-video w-full overflow-hidden transition-transform duration-300 group-hover:scale-105">
                   {project.screenshot ? (
@@ -320,6 +315,7 @@ export default function HomePage() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
                         className="text-subtext1 hover:text-text transition-colors"
                         title="GitHub"
                       >
@@ -331,6 +327,7 @@ export default function HomePage() {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
                         className="text-subtext1 hover:text-text transition-colors"
                         title="Live site"
                       >
