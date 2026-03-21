@@ -6,8 +6,6 @@ import { careerStatus } from "@/lib/config/pages";
 export default function OpenToWork() {
   return (
     <div className="border-surface0 bg-base relative flex flex-col overflow-hidden rounded-xl border p-5 shadow-lg">
-      {/* Ambient glow */}
-      <div className="bg-accent/10 pointer-events-none absolute -bottom-8 -right-8 h-36 w-36 rounded-full blur-3xl" />
 
       {/* Role */}
       <div className="mb-4 flex items-center gap-2">
