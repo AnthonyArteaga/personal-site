@@ -258,7 +258,7 @@ export default function HomePage() {
             <div
               key={project.href}
               onClick={() => window.open(project.liveUrl ?? project.github ?? '#', '_blank')}
-              className="border-surface0 bg-base hover:border-accent group relative cursor-pointer overflow-hidden rounded-xl border shadow-lg transition-all duration-300 hover:shadow-xl"
+              className="border-surface0 bg-base hover:border-accent group relative flex cursor-pointer flex-col overflow-hidden rounded-xl border shadow-lg transition-all duration-300 hover:shadow-xl"
             >
               <div className="overflow-hidden">
                 <div className="bg-surface0 aspect-video w-full overflow-hidden transition-transform duration-300 group-hover:scale-105">
@@ -275,23 +275,28 @@ export default function HomePage() {
                   )}
                 </div>
               </div>
-              <div className="space-y-3 p-5">
-                <h3 className="text-text group-hover:text-accent text-xl font-semibold transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-subtext0 line-clamp-2 text-sm">
-                  {project.desc}
-                </p>
-                <div className="flex items-center justify-between pt-1">
+              <div className="flex flex-col flex-1 justify-between p-5 gap-3">
+                <div className="space-y-3">
+                  <h3 className="text-text group-hover:text-accent text-xl font-semibold transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-subtext0 line-clamp-2 text-sm">
+                    {project.desc}
+                  </p>
+                </div>
+                <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     {project.tags.map((tag) => {
                       const entry = TAG_ICONS[tag];
                       return entry ? (
-                        <span key={tag} title={tag}>
+                        <span key={tag} className="group/icon relative">
                           <entry.Icon
                             size={30}
                             style={{ color: entry.color }}
                           />
+                          <span className="pointer-events-none absolute top-full left-1/2 -translate-x-1/2 whitespace-nowrap rounded px-1.5 py-0.5 text-[10px] text-subtext0 opacity-0 transition-opacity duration-200 group-hover/icon:opacity-100">
+                            {tag}
+                          </span>
                         </span>
                       ) : (
                         <span
@@ -310,7 +315,7 @@ export default function HomePage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="text-subtext1 hover:text-text transition-colors"
+                        className="text-subtext1 hover:text-text hover:bg-surface1 rounded-md p-1 transition-all duration-200"
                         title="GitHub"
                       >
                         <IconBrandGithub size={20} />
@@ -322,7 +327,7 @@ export default function HomePage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="text-subtext1 hover:text-text transition-colors"
+                        className="text-subtext1 hover:text-text hover:bg-surface1 rounded-md p-1 transition-all duration-200"
                         title="Live site"
                       >
                         <IconExternalLink size={20} />

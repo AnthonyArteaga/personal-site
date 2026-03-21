@@ -46,10 +46,9 @@ export default function RootLayout({
                   };
                   const storedPalette = safeParse(localStorage.getItem('palette'));
                   const storedAccent = safeParse(localStorage.getItem('accent'));
-                  const palette = storedPalette ??
-                    (window.matchMedia('(prefers-color-scheme: light)').matches ? 'latte' : 'mocha');
+                  const palette = storedPalette ?? 'frappe';
                   if (palette) document.documentElement.classList.add(palette);
-                  const accent = storedAccent ?? 'peach';
+                  const accent = storedAccent ?? 'pink';
                   document.documentElement.style.setProperty(
                     '--current-accent-color', 'var(--color-' + accent + ')'
                   );

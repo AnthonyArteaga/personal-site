@@ -24,8 +24,8 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | null>(null);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [palette, setPalette] = useLocalStorage<PaletteName>('palette', 'mocha');
-  const [accent, setAccent] = useLocalStorage<AccentColorName>('accent', 'peach');
+  const [palette, setPalette] = useLocalStorage<PaletteName>('palette', 'frappe');
+  const [accent, setAccent] = useLocalStorage<AccentColorName>('accent', 'pink');
   const [backgroundEnabled, setBackgroundEnabled] = useLocalStorage<boolean>('background-enabled', false);
 
   // Apply palette class to <html>
