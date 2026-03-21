@@ -25,17 +25,30 @@ export default function Header({ onToggleSidebar }: { onToggleSidebar: () => voi
         <IconMenu2 size={24} />
       </button>
       <nav className="hidden items-center space-x-4 md:flex">
-        {mainNavItems.map((item) => (
-          <Link
-            key={item.title}
-            href={item.href}
-            target={item.external ? '_blank' : undefined}
-            rel={item.external ? 'noopener noreferrer' : undefined}
-            className="text-text hover:text-accent rounded px-3 py-2 text-sm font-medium transition-colors duration-150"
-          >
-            {item.title}
-          </Link>
-        ))}
+        {mainNavItems.map((item) =>
+          item.scrollTo ? (
+            <button
+              key={item.title}
+              onClick={() => {
+                const el = document.getElementById(item.scrollTo!);
+                if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 96, behavior: 'smooth' });
+              }}
+              className="text-text hover:text-accent cursor-pointer rounded px-3 py-2 text-sm font-medium transition-colors duration-150"
+            >
+              {item.title}
+            </button>
+          ) : (
+            <Link
+              key={item.title}
+              href={item.href}
+              target={item.external ? '_blank' : undefined}
+              rel={item.external ? 'noopener noreferrer' : undefined}
+              className="text-text hover:text-accent rounded px-3 py-2 text-sm font-medium transition-colors duration-150"
+            >
+              {item.title}
+            </Link>
+          )
+        )}
         <button
           onClick={onToggleSidebar}
           className="text-text hover:text-accent cursor-pointer rounded px-3 py-2 text-sm font-medium"

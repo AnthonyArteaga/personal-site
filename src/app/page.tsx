@@ -81,7 +81,7 @@ export default function HomePage() {
   return (
     <div className="mx-auto max-w-6xl space-y-12 px-0 md:space-y-16 md:px-4">
       {/* Intro */}
-      <section className="px-4 md:px-0">
+      <section id="about" className="px-4 md:px-0">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-stretch lg:gap-10">
           {/* Left: bio */}
           <div className="flex flex-col justify-center space-y-5 lg:flex-1">
@@ -89,7 +89,7 @@ export default function HomePage() {
               Hey! I&apos;m{" "}
               <span className="text-accent">
                 <span
-                  className="decoration-accent/30 underline decoration-dashed opacity-70 cursor-pointer"
+                  className="decoration-accent/30 underline decoration-dashed opacity-70"
                   onMouseEnter={() => setIsNameHovered(true)}
                   onMouseLeave={() => setIsNameHovered(false)}
                   onFocus={() => setIsNameHovered(true)}
@@ -189,7 +189,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Projects */}
-      <section className="px-4 md:px-0">
+      <section id="projects" className="px-4 md:px-0">
         <div className="mb-8 flex items-center justify-between">
           <h2 className="flex items-center gap-3 text-2xl font-semibold md:text-3xl">
             <IconStar size={28} className="text-accent" />

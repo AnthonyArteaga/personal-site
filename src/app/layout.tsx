@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="bg-base font-jetbrains-mono text-text selection:bg-accent/30 selection:text-accent/80 caret-accent scrollbar min-h-screen"
+      className="bg-base font-jetbrains-mono text-text selection:bg-accent/30 selection:text-accent/80 caret-accent scrollbar min-h-screen scroll-smooth"
       suppressHydrationWarning
     >
       <head>
