@@ -3,12 +3,9 @@
 import { useRef, useState, useEffect } from 'react';
 import { IconMapPin, IconSun, IconMoon } from '@tabler/icons-react';
 import type L from 'leaflet';
+import Site from '@/lib/config/common';
 
-// TODO: Change these to your location
-const LAT = 40.697472;
-const LNG = -73.950528;
-const TIMEZONE = 'America/New_York';
-const CITY = 'New York, NY';
+const { lat: LAT, lng: LNG, timezone: TIMEZONE, city: CITY } = Site.location;
 
 export default function LocationMap() {
   const mapRef = useRef<HTMLDivElement>(null);

@@ -3,6 +3,12 @@ const Site = {
   url: 'https://yoursite.dev',
   description: 'Your tagline or description here.',
   tags: ['Developer', 'Software Engineer', 'New York'],
+  location: {
+    lat: 40.697472,
+    lng: -73.950528,
+    timezone: 'America/New_York',
+    city: 'New York, NY',
+  },
   seo: {
     author: 'Anthony Arteaga',
     location: { city: 'New York', region: 'NY', country: 'US' },
